@@ -29,16 +29,14 @@ public class TableDemo extends JPanel {
 		table.setDefaultRenderer(Object.class, new EntryRenderer());
 		// Add the scroll pane to this panel.
 		add(scrollPane, BorderLayout.CENTER);
-		JTextField query = new JTextField();
+		JTextField query = new JTextField("type an int");
 		add(query, BorderLayout.NORTH);
 		query.getDocument().addDocumentListener(new DelayedChangeListener(350, new DelayedChangeHandler() {
 			@Override
 			public void setText(String text) {
-				System.out.println(text);
 				try {
 					int i = Integer.parseInt(text);
 					model.setList(new DummyList(i));
-					repaint();
 				} catch (Exception e) {
 
 				}
